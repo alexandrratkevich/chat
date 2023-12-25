@@ -52,8 +52,13 @@ class Application
                     PROJECT_ROOT.'/.cache/twig/'
                 );
             },
-            'MySQL' => function () {
-                throw new \Exception('Not Implemented');
+            'DatabaseConnection' => function () {
+                return new Database\MySQL(
+                    Conf::$MySQL['name'],
+                    Conf::$MySQL['host'],
+                    Conf::$MySQL['user'],
+                    Conf::$MySQL['pass'],
+                );
             },
         ]);
     }
